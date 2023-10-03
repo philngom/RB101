@@ -11,6 +11,19 @@ def valid_number?(num)
   num != 0
 end
 
+def operation_to_message(op)
+  case op
+  when '1'
+    'Adding'
+  when '2'
+    'Subtracting'
+  when '3'
+    'Multiplying'
+  when '4'
+    'Dividing'
+  end
+end
+
 puts "Welcome to calculator! Enter your name:"
 
 name = ''
@@ -84,6 +97,8 @@ loop do
   when '4'
     result = num1.to_f / num2.to_i
   end
+
+  prompt("#{operation_to_message(operator)} the two numbers...")
 
   puts "The result is: #{result}"
 
