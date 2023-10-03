@@ -9,7 +9,8 @@ num1 = gets.chomp.to_i
 puts "What's your second number?"
 num2 = gets.chomp.to_i
 
-puts "What operation would you like to perform? 1) add 2) subtract 3) multiply 4) division"
+puts "What operation would you like to perform?"
+puts "1) add 2) subtract 3) multiply 4) division"
 operation = gets.chomp.to_i
 
 result = nil
