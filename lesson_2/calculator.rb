@@ -98,7 +98,7 @@ loop do
     result = num1.to_f / num2.to_i
   end
 
-  prompt("#{operation_to_message(operator)} the two numbers...")
+  prompt("#{operation_to_message(operation)} the two numbers...")
 
   puts "The result is: #{result}"
 
