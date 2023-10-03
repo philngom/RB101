@@ -7,11 +7,35 @@ def prompt(message)
   puts("=> #{message}")
 end
 
+def valid_number?(num)
+  num != 0
+end
+
 puts "Welcome to calculator!"
-prompt("What's your first number?")
-num1 = gets.chomp.to_i
-prompt("What's your second number?")
-num2 = gets.chomp.to_i
+
+num1 = ''
+loop do
+  prompt("What's your first number?")
+  num1 = gets.chomp.to_i
+
+  if valid_number?(num1)
+    break
+  else
+    prompt("Uh oh! Please enter a valid number.")
+  end
+end
+
+num2 = ''
+loop do
+    prompt("What's your second number?")
+    num2 = gets.chomp.to_i
+
+    if valid_number?(num2)
+      break
+    else
+      prompt("Uh oh! Please enter a valid number.")
+    end
+end
 
 prompt("What operation would you like to perform?")
 prompt("1) add 2) subtract 3) multiply 4) division")
