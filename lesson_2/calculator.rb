@@ -11,7 +11,20 @@ def valid_number?(num)
   num != 0
 end
 
-puts "Welcome to calculator!"
+puts "Welcome to calculator! Enter your name:"
+
+name = ''
+loop do
+  name = gets.chomp
+
+  if name.empty?
+    promt("Make sure to use a valid name.")
+  else
+    break
+  end
+end
+
+prompt("Hello, #{name}!")
 
 loop do
   num1 = ''
@@ -38,21 +51,38 @@ loop do
       end
   end
 
-  prompt("What operation would you like to perform?")
-  prompt("1) add 2) subtract 3) multiply 4) division")
-  operation = gets.chomp.to_i
+  operator_prompt = <<-MSG
+  What operation would you like to perform?
+  1) Add
+  2) Subtract
+  3) Multiply
+  4) Division
+  MSG
 
-  result = nil
+  prompt(operator_prompt)
+
+  operation = ''
+  loop do
+    operation = gets.chomp
+
+    if %w(1 2 3 4).include?(operation)
+      break
+    else
+      prompt("Must choose 1, 2, 3 or 4")
+    end
+  end
+
+  result = ''
 
   case operation
-  when 1
-    result = num1 + num2
-  when 2
-    result = num1 - num2
-  when 3
-    result = num1 * num2
-  when 4
-    result = num1.to_f / num2
+  when '1'
+    result = num1.to_i + num2.to_i
+  when '2'
+    result = num1.to_i - num2.to_i
+  when '3'
+    result = num1.to_i * num2.to_i
+  when '4'
+    result = num1.to_f / num2.to_i
   end
 
   puts "The result is: #{result}"
@@ -63,4 +93,4 @@ loop do
 
 end
 
-prompt("Thank you for using the calculator. Goodbye!")
+prompt("Thank you for using the calculator. Goodbye, #{name}!")
