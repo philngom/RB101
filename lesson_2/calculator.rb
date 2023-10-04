@@ -18,19 +18,6 @@ op = {
   4 => 'Division'
 }
 
-# def operation_to_message(op)
-#   case op
-#   when '1'
-#     'Adding'
-#   when '2'
-#     'Subtracting'
-#   when '3'
-#     'Multiplying'
-#   when '4'
-#     'Dividing'
-#   end
-# end
-
 puts "Welcome to calculator! Enter your name:"
 
 name = ''
@@ -61,14 +48,14 @@ loop do
 
   num2 = ''
   loop do
-      prompt("What's your second number?")
-      num2 = gets.chomp.to_i
+    prompt("What's your second number?")
+    num2 = gets.chomp.to_i
 
-      if valid_number?(num2)
-        break
-      else
-        prompt("Uh oh! Please enter a valid number.")
-      end
+    if valid_number?(num2)
+      break
+    else
+      prompt("Uh oh! Please enter a valid number.")
+    end
   end
 
   operator_prompt = <<-MSG
@@ -109,10 +96,10 @@ loop do
 
   puts "The result is: #{result}"
 
-  prompt("Do you want to perform another calculation? (Y to calculate again)");
+  prompt("Do you want to perform another calculation? (Y to calculate again)")
   answer = gets.chomp
-  break unless answer.downcase.start_with?('y')
 
+  break unless answer.downcase.start_with?('y')
 end
 
 prompt("Thank you for using the calculator. Goodbye, #{name}!")
