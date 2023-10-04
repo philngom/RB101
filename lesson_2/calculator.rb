@@ -11,18 +11,25 @@ def valid_number?(num)
   num != 0
 end
 
-def operation_to_message(op)
-  case op
-  when '1'
-    'Adding'
-  when '2'
-    'Subtracting'
-  when '3'
-    'Multiplying'
-  when '4'
-    'Dividing'
-  end
-end
+op = {
+  1 => 'Adding',
+  2 => 'Subtracting',
+  3 => 'Multiplying',
+  4 => 'Division'
+}
+
+# def operation_to_message(op)
+#   case op
+#   when '1'
+#     'Adding'
+#   when '2'
+#     'Subtracting'
+#   when '3'
+#     'Multiplying'
+#   when '4'
+#     'Dividing'
+#   end
+# end
 
 puts "Welcome to calculator! Enter your name:"
 
@@ -98,7 +105,7 @@ loop do
     result = num1.to_f / num2.to_i
   end
 
-  prompt("#{operation_to_message(operation)} the two numbers...")
+  prompt("#{op[operation.to_i]} the two numbers...")
 
   puts "The result is: #{result}"
 
