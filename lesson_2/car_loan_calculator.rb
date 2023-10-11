@@ -66,3 +66,9 @@ loop do
     prompt("Please enter valid option from selection list.")
   end
 end
+
+monthly_interest_rate = (apr.to_f / 12) / 100
+
+monthly_payment = loan_amount.to_i * (monthly_interest_rate / (1 - (1 + monthly_interest_rate)**(-loan_duration)))
+
+prompt("Your monthly payment is #{monthly_payment.round(2)}.")
