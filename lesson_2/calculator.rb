@@ -2,13 +2,14 @@
 # ask user for operation to perform
 # perform operation
 # return result
+require "pry"
 
 def prompt(message)
   puts("=> #{message}")
 end
 
 def valid_number?(num)
-  num != 0
+  num.to_i.to_s == num && num.to_i != 0
 end
 
 op = {
@@ -25,7 +26,7 @@ loop do
   name = gets.chomp
 
   if name.empty?
-    promt("Make sure to use a valid name.")
+    prompt("Make sure to use a valid name.")
   else
     break
   end
@@ -37,7 +38,7 @@ loop do
   num1 = ''
   loop do
     prompt("What's your first number?")
-    num1 = gets.chomp.to_i
+    num1 = gets.chomp
 
     if valid_number?(num1)
       break
@@ -49,7 +50,7 @@ loop do
   num2 = ''
   loop do
     prompt("What's your second number?")
-    num2 = gets.chomp.to_i
+    num2 = gets.chomp
 
     if valid_number?(num2)
       break
