@@ -5,12 +5,14 @@ def prompt(message)
 end
 
 def win?(first, second)
-  first == 'rock' && second == 'scissors' || first == 'paper' && second == 'rock' || first == 'scissors' && second == 'paper'
+  (first == 'rock' && second == 'scissors') ||
+    (first == 'paper' && second == 'rock') ||
+    (first == 'scissors' && second == 'paper')
 end
 
 def display_results(user, computer)
   if win?(computer, user)
-    prompt("You lose!")
+    prompt("Computer won!")
   elsif win?(user, computer)
     prompt("You win!")
   else
