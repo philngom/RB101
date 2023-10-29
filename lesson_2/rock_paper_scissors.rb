@@ -1,4 +1,4 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard']
+VALID_CHOICES = ['rock', 'paper', 'scissors', 'lizard', 'spock']
 
 def prompt(message)
   puts("=> #{message}")
@@ -28,15 +28,23 @@ def display_results(user, computer)
   end
 end
 
-prompt("Welcome to the Rock, Paper, Scissors, Spock, Lizard game!")
+prompt("Welcome to the Rock, Paper, Scissors, Lizard, Spock game!")
+
+choice_prompt = <<-MSG
+1. Rock
+2. Paper
+3. Scissors
+4. Lizard
+5. Spock
+MSG
 
 loop do
   user_choice = ''
   loop do
-    prompt("Select a choice: rock, paper, scissors, lizard, spock")
+    prompt(choice_prompt)
     user_choice = gets.chomp
 
-    if VALID_CHOICES.include?(user_choice)
+    if VALID_CHOICES[user_choice.to_i]
       break
     else
       prompt("That is not a valid choice.")
@@ -45,9 +53,9 @@ loop do
 
   computer_choice = VALID_CHOICES.sample
 
-  prompt("You chose #{user_choice} and computer chose #{computer_choice}")
+  prompt("You chose #{VALID_CHOICES[user_choice.to_i]} and computer chose #{computer_choice}")
 
-  display_results(user_choice, computer_choice)
+  display_results(VALID_CHOICES[user_choice], computer_choice)
 
   prompt("Would you like to play again?")
   break unless gets.chomp.downcase.start_with?('y')
