@@ -5,18 +5,17 @@ def prompt(message)
 end
 
 def win?(first, second)
-  (first == 'rock' && second == 'scissors') ||
-    (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper') ||
-    (first == 'rock' && second == 'lizard') ||
-    (first == 'paper' && second == 'spock') ||
-    (first == 'scissors' && second == 'lizard') ||
-    (first == 'spock' && second == 'rock') ||
-    (first == 'spock' && second == 'scissors') ||
-    (first == 'lizard' && second == 'spock') ||
-    (first == 'lizard' && second == 'paper')
+    win_obj = {
+      rock: ['scissors', 'lizard'],
+      paper: ['rock', 'spock'],
+      scissors: ['paper', 'lizard'],
+      spock: ['rock', 'scissors'],
+      lizard: ['spock', 'paper']
+    }
 
+    win_obj[first.to_sym].include?(second)
 end
+
 
 def display_results(user, computer)
   if win?(computer, user)
