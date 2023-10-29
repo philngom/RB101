@@ -1,4 +1,4 @@
-VALID_CHOICES = ['rock', 'paper', 'scissors']
+VALID_CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard']
 
 def prompt(message)
   puts("=> #{message}")
@@ -7,7 +7,15 @@ end
 def win?(first, second)
   (first == 'rock' && second == 'scissors') ||
     (first == 'paper' && second == 'rock') ||
-    (first == 'scissors' && second == 'paper')
+    (first == 'scissors' && second == 'paper') ||
+    (first == 'rock' && second == 'lizard') ||
+    (first == 'paper' && second == 'spock') ||
+    (first == 'scissors' && second == 'lizard') ||
+    (first == 'spock' && second == 'rock') ||
+    (first == 'spock' && second == 'scissors') ||
+    (first == 'lizard' && second == 'spock') ||
+    (first == 'lizard' && second == 'paper')
+
 end
 
 def display_results(user, computer)
@@ -20,12 +28,12 @@ def display_results(user, computer)
   end
 end
 
-prompt("Welcome to the Rock, Paper, Scissors game!")
+prompt("Welcome to the Rock, Paper, Scissors, Spock, Lizard game!")
 
 loop do
   user_choice = ''
   loop do
-    prompt("Select a choice: rock, paper or scissors?")
+    prompt("Select a choice: rock, paper, scissors, lizard, spock")
     user_choice = gets.chomp
 
     if VALID_CHOICES.include?(user_choice)
