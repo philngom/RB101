@@ -42,9 +42,9 @@ loop do
   user_choice = ''
   loop do
     prompt(choice_prompt)
-    user_choice = gets.chomp
-
-    if VALID_CHOICES[user_choice.to_i]
+    user_choice = gets.chomp.to_i - 1
+    puts user_choice
+    if VALID_CHOICES[user_choice]
       break
     else
       prompt("That is not a valid choice.")
@@ -53,7 +53,7 @@ loop do
 
   computer_choice = VALID_CHOICES.sample
 
-  prompt("You chose #{VALID_CHOICES[user_choice.to_i]} and computer chose #{computer_choice}")
+  prompt("You chose #{VALID_CHOICES[user_choice]} and computer chose #{computer_choice}")
 
   display_results(VALID_CHOICES[user_choice], computer_choice)
 
